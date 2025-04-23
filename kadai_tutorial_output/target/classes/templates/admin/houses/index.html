@@ -82,7 +82,7 @@
                                     <ul class="pagination">
                                         <li class="page-item">
                                             <span th:if="${housePage.isFirst()}" class="page-link disabled">前</span>
-                                            <a th:unless="${housePage.isFirst()}" th:href="@{/admin/houses(page = ${i}, keyword = ${keyword})}" class="page-link samuraitravel-page-link">前</a>
+                                            <a th:unless="${housePage.isFirst()}" th:href="@{/admin/houses(page = ${housePage.getNumber() - 1}, keyword = ${keyword})}" class="page-link samuraitravel-page-link">前</a>
                                         </li>
                                         <li th:each="i : ${#numbers.sequence(0, housePage.getTotalPages() - 1)}" class="page-item">
                                             <span th:if="${i == housePage.getNumber()}" class="page-link active samuraitravel-active" th:text="${i + 1}"></span>
@@ -90,7 +90,7 @@
                                         </li>
                                         <li class="page-item">                        
                                             <span th:if="${housePage.isLast()}" class="page-link disabled">次</span>
-                                            <a th:unless="${housePage.isLast()}" th:href="@{/admin/houses(page = ${i}, keyword = ${keyword})}" class="page-link samuraitravel-page-link">次</a>
+                                            <a th:unless="${housePage.isLast()}" th:href="@{/admin/houses(page = ${housePage.getNumber() + 1}, keyword = ${keyword})}" class="page-link samuraitravel-page-link">次</a>
                                         </li>
                                     </ul>
                                 </nav> 
